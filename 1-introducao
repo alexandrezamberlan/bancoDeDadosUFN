@@ -1,0 +1,29 @@
+SISTEMAS COMPUTACIONAIS
+  - DE INFORMAÇÃO: sistemas para armazenar dados, controlar históricos, realizar pesquisas/consultas
+  - DE CONHECIMENTO: é tudo que um sistema de informação é, mais a gestão de reconhecimento de padrões -> tomada decisão
+  
+  - COMPOSTO POR 2 PARTES:
+    - Aspectos Funcionais: funcionalidades ou o comportamento do sistema -> Orientação a Objetos = Classes e Métodos
+    - Aspectos Estruturais: estruturas de dados, interfaces, -> Orientação a objetos = Classes e atributos -> BANCO DE DADOS
+  
+ENGENHARIA DE SOFTWARE
+  O QUE FAZER
+  FASES DE:
+    - ANÁLISE/LEVANTAMENTO DE REQUISITOS
+    - MODELAGEM/DESENHO
+    - PROJETO
+    - CODIFICAÇÃO
+    - TESTES
+  
+PROJETO DE SOFTWARE
+  METODOLOGIA DE CONSTRUÇÃO - COMO FAZER, QUANDO FAZER E QUEM VAI FAZER
+    - Exemplos:
+      - Cascata
+      - RUP
+      - Ágeis: XP, Scrum, FDD
+
+FRAMEWORKS
+  Model View Controller (MVC)
+    - Model: camada de persistência ou dados - Orientação a objetos mapeada em Banco de Dados (Mapeamento Objeto Relacional - MOR ou Object Relational Mapping - ORM)
+    - Controller: regra de negócio do sistema
+    - View: parte do usuário - front-end
