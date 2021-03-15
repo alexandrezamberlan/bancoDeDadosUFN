@@ -39,3 +39,16 @@ Turma(codTurma, codigo, ano, semestre, status, codUsuario, codCurso, codDiscipli
     codCurso referencia Curso
     codDisciplina referencia Disciplina
 
+
+
+
+typedef struct no {
+    struc no *prox;
+    int valor;
+} Celula;
+
+public class Funcionario {
+    String nome;
+    int codigo;
+    Funcionario chefe;
+}
