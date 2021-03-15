@@ -1,0 +1,84 @@
+Estudo de caso: Sistema Online (computação em nuvem e arquitetura cliente-servidor) da Superliga de Voleibol
+
+Superliga de voleibol contempla partidas de voleibol profissional, tanto de equipes masculinas, quanto femininas.
+As equipes são formadas por atletas confederados e profissionais de fisioterapia, medicina, educação física (com 'brevês de técnico'), matemáticos (estatísticos). 
+A confederação de voleibol possui árbitros, diretores, .... As equipes possuem nome, patrocinadores, localização (cidade), centro de treinamento. 
+Cada jogador tem nome completo, idade, apelido, posição e um histórico geral de pontos realizados e pontos entregues.
+As partidas são entre duas equipes, a da 'casa' e a visitante, com data, hora, tempo de jogo, placar. Todos os jogos são monitorados e os resultados são convertidos
+em uma tabela de classicação ordenada decrescente (equipe, pontuação, número de partidas, número de vitórias, número de derrotas).
+
+Apps -> por exemplo, em python-django é um subsistema que faz a gestão de um conjunto de dados/informações/conhecimento no formato CRUD
+    -> Create, Retrieve, Update, Delete
+
+Vamos retomar a modelagem Orientada a Objetos -> de certa forma, é o que conduz a criação/desenvolvimento de um app
+    -> Classes: atributos
+        Equipe: sexo, nome, patrocinadores, cidade, centro de treinamento
+        Funcionário: nome completo, idade, 
+            Fisioterapeuta
+            Médico
+            Educador físico: breves
+            Estatístico        
+            Atleta: apelido, posição
+        
+        Confederacao
+            Diretor
+            Arbitro
+
+        Histórico desempenho
+        Partida: equipe visitante, equipe da casa, data, hora, tempo de jogo, placar, arbitro1, arbitro2, arbitro3, arbitro4
+        Tabela de classificação: equipe, pontuação, número de partidas, número de vitórias, número de derrotas  
+
+
+    - Toda CLASSE equivale a uma ENTIDADE -> TABELA
+    - Todo ATRIBUTO na OO equivale a um ATRIBUTO no model Entidade-Relacional (ER) -> COLUNA
+    - Todo o RELACIONAMENTO equivale a um RELACIONAMENTO no modelo Entidade-Relacional (ER) -> CHAVE ESTRANGEIRA
+        - associação; dependência; composição; agregação
+        - herança
+        - cardinalidade acontece tanto na OO quanto no modelo ER        
+            - quantos elementos/objetos/instâncias de uma classe se relaciona(m) com outro(s) elementos/objetos/instâncias de outra classe
+            - é a cardinalidade que define quem visita quem (qual atributo de uma entidade visita a outra)
+
+
+
+    public class Funcionario {
+        String nomeCompleto;
+        Date dataNascimento;
+    }
+
+    public classe Atleta extends Funcionario {
+        String apelido;
+        String posicao;
+    }
+
+    public class CentroTreinamento {
+        String nome;
+        String cep;
+        String rua;
+        String numero;
+        String complemento;
+        String cidade;
+    }
+    
+    public classe Equipe {
+        String nome;
+        String sexo;
+        List<String> patrocinadores;
+        String cidade;
+
+        List<CentroTreinamento> cts;
+        List<Atleta> atletas;
+
+        public Equipe(String nome, String sexo) {
+            this.nome = nome;
+            this.sexo = sexo;
+        }
+
+    }
+
+    Dado um texto ou um áudio como identificar:
+        - Classe/Entidade/Tabela: substantivos que categorizem algo, ou que representem vários objetos da categoria
+        - Atributo/Coluna: substantivo ou adjetivo caracterizar um objeto de uma categoria
+        - Relacionamento:
+            - herança: é do tipo de (é_um)
+            - associação: verbo
+            - agregação/composição: é parte de (é_parte)

@@ -1,0 +1,41 @@
+O sistema de gestão de TFGs da UFN é um SaaS, com arquitetura Cliente-Servidor. 
+O objetivo do sistema é gerenciar:
+    - usuários: administrador, coordenador de TFG, secretária, 
+                professor, aluno (cpf, matrícula, nome, curso,
+    email, senha, status)
+    - cursos: nome, área, email
+    - disciplinas: nome, sigla
+    - turmas: codigo, ano, semestre, professor, disciplina, curso, status
+
+
+Modelagem:
+ - Conceitual: livre de tecnologia (não pensa em banco ou SGBD, nem tipos)
+    - quando se utiliza?
+        - problema muito grande e a equipe de projeto tem várias pessoas
+        - quando não se tem o SGBD
+    - modelar entidades, atributos e relacionamentos
+
+- Lógica: já se pensa na programação ou SQL
+    - quando se utiliza?
+        - começar a converter o modelo conceitual em físico
+        - por exemplo,
+          atributo 'nome do cliente' vira nomeCliente
+          atributo 'curso do aluno' vira cursoAluno
+
+- Físico: dependente do banco e do SGBD, associado então à tecnologia
+
+
+Modelagem Lógica do problema:
+
+Curso(codCurso, nome, area, email)
+
+Usuario(codUsuario, tipo, cpf, matricula, nome, email, status, codCurso)
+    codCurso referencia Curso
+
+Disciplina(codDisciplina, nome, sigla)
+
+Turma(codTurma, codigo, ano, semestre, status, codUsuario, codCurso, codDisciplina)
+    codUsuario referencia Usuario
+    codCurso referencia Curso
+    codDisciplina referencia Disciplina
+
