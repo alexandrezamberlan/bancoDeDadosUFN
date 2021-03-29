@@ -1,0 +1,30 @@
+Sistema de Gestão de Projetos COMIC recebe projetos na área da Saúde, avalia e acompanha projetos que desejam ocupar
+os hospitais escola da UFN.
+
+O sistema possui gestão básica: usuários (matrícula, nome, curso, instituição, tipo, ...); curso (código, nome, área, ... );
+instituição (código, nome, sigla, ...). Todo usuário está ligado a um curso e a uma instituição no mínimo. Pode ser
+que um usuário esteja associado a mais de um curso; edital (ano, semestre e descrição).
+
+Todo usuário precisa ser associado a um tipo (aluno, professor ou administrador). Somente usuários professores podem
+submeter projetos. Aluno pode ser associado a um projeto. Um projeto pode ter um professor responsável e n professores
+colaboradores. Um projeto deve ter um aluno associado.
+
+Somente professor pode submeter/cadastrar um projeto (edital, professor responsa'vel, professores colaboradores,
+aluno, título, resumo, qual hospital de execução do projeto; ....). Um projeto deve estar associado a um edital já
+cadastrado.
+
+Uma vez que o projeto for cadastrado, o administrador associa dois professores avaliadores para o julgamento do 
+projeto. A avaliação contém dados da submissão, professor avaliador 1, professor avaliador 2, status (aprovado, ... ),
+parecer avaliador 1, parecer avaliador 2, nota avaliador 1, nota avaliador 2, ....
+
+Há uma comissão (COMIC) que a partir das avaliações julgam os pareceres. Todo parecer tem uma relação com uma ação
+da comissão. Ou seja, uma avaliação deve ter um parecer geral do comitê. O comitê, ao gerar um parecer geral, 
+precisa estar associado a uma data de parecer, texto de justificativa, arquivo de ofício, status (aprovado,
+reprovado, pendente).
+
+A partir dessa descrição, construir os 3 modelos:
+- Conceitual - ASTAH com Diagrama de Classes
+- Lógico - para visualização dos relacionamentos via atributos
+- Físico - MySQL Workbench
+
+
