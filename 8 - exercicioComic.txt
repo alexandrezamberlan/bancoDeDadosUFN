@@ -1,3 +1,8 @@
+CASE - Computer Aided Software Engeneering
+    - geradores de SQL do MySQL Workbench
+    - frameworks de Mapeamento Objeto Relacional 
+
+
 Sistema de Gestão de Projetos COMIC recebe projetos na área da Saúde, avalia e acompanha projetos que desejam ocupar
 os hospitais escola da UFN.
 
@@ -89,4 +94,6 @@ Avaliacao(codProjeto, codAvaliador1, codAvaliador2, notaAvaliador1, notaAvaliado
 Comissao(data, hora, codAvaliacao, parecer, arquivoOficio, status)
     codAvaliacao chave primária
     codAvaliacao (codProjeto) referencia Avaliacao
+
+
 
