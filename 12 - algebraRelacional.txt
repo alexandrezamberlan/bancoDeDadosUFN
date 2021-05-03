@@ -1,0 +1,86 @@
+Álgebra Relacional em Banco de Dados
+    Sugestão de site - https://www.devmedia.com.br/algebra-relacional/9229 e 
+                       https://pt.wikipedia.org/wiki/%C3%81lgebra_relacional
+
+É uma subdivisão do estudo de Banco de Dados que trata da MANIPULAÇÃO dos dados via lógica matemática,
+mas precisamente, lógica de primeira ordem.
+
+Focada na MANIPULAÇÃO DE DADOS:
+ - projeção -> exibir coluna(s) inteira(s) de uma tabela -> um domínio
+ - seleção  -> aplicar um filtro na projeção baseado em condicionais (união, intersecção, produto cartesiano, ...)
+  
+ - união - OU
+ - intesecção - E 
+ - diferença 
+ - divisão
+ - produto cartesiano -> garantia que dados que estão em uma tabela também estejam em outra tabela, via relacionamento de chave estrangeira
+ - join -> aplicação do produto cartesiano via função 
+ 
+
+Com essas expressões lógicas de primeira ordem é possível:
+    - realizar consultas
+
+Álgebra Relacional a linguagem formal para SQL -> Structed Query Language
+
+
+PROJEÇÃO -> mostrando duas colunas inteiras de uma tabela
+select clientes.nome, clientes.cidade
+from clientes
+
+SELEÇÃO -> filtrando uma projeção a partir de condições
+select clientes.nome, clientes.cidade
+from clientes, filmes, locacao
+where clientes.#C = locacao.#C  and      %produto cartesiano -> unificação de uma chave em duas tabelas%
+      filmes.nome_f = 'Independence Day' and %interseccao -> and%
+      filmes.#F = locacao.#F %produto cartesiano -> vinculando codigo do filme independence day na tabela de locação%
+
+
+Nome dos filmes retirados por pessoas de petrópolis
+
+select filmes.nome_f
+from filmes, clientes, locacao
+where clientes.cidade = 'Petrópolis' and
+      clientes.C# = locacao.C# and %produto cartesiano entre clientes e locacao%
+      filmes.F# = locacao.F#;  %produto cartesiano entre filmes e locacao%
+
+
+SELEÇÃO COM JOIN
+select filmes.nome_f
+from filmes, clientes, locacao
+join(clientes, locacao)
+join(filmes, locacao)
+where clientes.cidade = 'Petrópolis';
+    
+
+A) select *             -> SELEÇÃO
+   from tabela1
+   where campo1 = 'Valor';
+
+B) select nome, status  -> PROJEÇÃO
+   from tabela1
+
+C) select tabela1.nome, tabela1.status -> SELEÇÃO e PRODUTO CARTESIANO
+   from tabela1, tabela 2
+   where tabela1.codigo = tabela2.codigo
+
+D) select tabela1.nome, tabela1.status -> SELEÇÃO, PRODUTO CARTESIANO e INTERSECCÃO
+   from tabela1, tabela 2
+   where tabela1.codigo = tabela2.codigo and
+   tabela1.status = 'Unico'
+
+D) select tabela1.nome, tabela1.status -> SELEÇÃO, JOIN e INTERSECCÃO
+   from tabela1, tabela 2
+   JOIN(tabela1,  tabela2)
+   where tabela1.status = 'Unico';
+
+EXEMPLO
+
+No verão, mostre as peças das unidades que o usuário alexandre gostaria de temperatura. Ou seja,
+mostrar as temperaturas de todas as peças que o alexandre configurou no verão.
+
+select Usuario.nome, Peca.descricao, Perfil.temperatura
+from Perfil, Usuario, Peca
+where Perfil.estacao = 'Verão' and 
+     Usuario.nome = 'Alexandre' and 
+     Usuario.idUsuario = Perfil.idUsuario and 
+     Perfil.idPeca = Peca.idPeca;
