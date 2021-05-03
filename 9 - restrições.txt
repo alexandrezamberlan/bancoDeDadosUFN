@@ -3,8 +3,8 @@ Restrições em Banco de Dados
 
 Restrição? 
     é algo impeditivo!
-        - estrutural - de atributo
-        - funcional - de método
+        - estrutural - de atributo -> SGBD pode resolver
+        - funcional - de método -> camanda de controle (programa)
         - ...
         - no universo de banco de dados há outras restrições    
             - integridade -> chave primária (pode ser um atributo, mas podem ser n atributos)
@@ -29,3 +29,15 @@ Medico(codMedico, nome).
 
 Consulta(codPaciente, codMedico, data). 
     codPaciente, codMedico e data formam a chave primária
+
+Restrições:
+    - hard constraints: restrições fortes == estruturais
+
+    - soft constraints: restrições brandas == funcionais
+
+
+Inteligência Artificial:
+    - Complexidade == esforço 
+        - diretamente relacionada: restrições e heurísticas
+        - como programador, tratar restrições e criar heurísticas pode ser
+          atividades alta complexidade
