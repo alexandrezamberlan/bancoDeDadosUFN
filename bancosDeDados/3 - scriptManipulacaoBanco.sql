@@ -25,7 +25,7 @@ WHERE Empregado.funcao = 'GERENTE';
 #
 ############################################################################
 # Selecione todos os departamentos cujo orçamento mensal
-#seja maior que 100000. Apresente o Nome de tal departamento
+#seja maior que 10000. Apresente o Nome de tal departamento
 #e seu orçamento anual, que será obtido multiplicando-se o
 #orçamento mensal por 12.
 ############################################################################
@@ -73,21 +73,21 @@ order by  Empregado.nome desc;
 #like                      com um padrao de caracteres
 #is null                   é um valor nulo
 #
-SELECT  EMPNOME, EMPSALA
-FROM  EMP
-WHERE  EMPSALA BETWEEN  20  AND  30;
+SELECT  Empregado.nome, Empregado.sala
+FROM  Empregado
+WHERE  Empregado.sala BETWEEN  20  AND  30;
 #
-SELECT  EMPNOME,  DEPNUME
-FROM  EMP
-WHERE  DEPNUME  IN  (3,5);
+SELECT  Empregado.nome,  Empregado.Departamento_idDepartamento
+FROM  Empregado
+WHERE  Empregado.Departamento_idDepartamento  IN  (3,5);
 #
-SELECT  EMPNOME, EMPSERV
-FROM  EMP
-WHERE   EMPNOME  LIKE  'L%';
+SELECT  Empregado.nome, Empregado.funcao
+FROM  Empregado
+WHERE   Empregado.nome  LIKE  'L%';
 #
-SELECT EMPNOME, EMPSERV
-FROM  EMP
-WHERE  EMPCOMI  IS  NULL;
+SELECT Empregado.nome, Empregado.funcao
+FROM  Empregado
+WHERE  Empregado.comissao  IS  NULL;
 #
 # Operadores Negativos
 #
@@ -105,9 +105,9 @@ WHERE  EMPCOMI  IS  NULL;
 #menores que 1000 ou maiores que 3500.
 ############################################################################
 #
-SELECT EMPNOME,  EMPSALA
-FROM  EMP
-WHERE  EMPSALA  NOT  BETWEEN  1000  AND  3500;
+SELECT Empregado.nome,  Empregado.sala
+FROM  Empregado
+WHERE  Empregado.sala  NOT  BETWEEN  1000  AND  3500;
 #
 ############################################################################
 # Apresente todos os funcionários com salários
@@ -116,20 +116,20 @@ WHERE  EMPSALA  NOT  BETWEEN  1000  AND  3500;
 #
 # Operadores  "AND" (E) e  "OR" (OU).
 #
-SELECT EMPNOME, EMPSALA, EMPSERV
-FROM  EMP
-WHERE  EMPSALA  BETWEEN  3400 AND 5000
-AND  EMPSERV =  'balconista';
+SELECT Empregado.nome, Empregado.sala, Empregado.funcao
+FROM  Empregado
+WHERE  Empregado.sala  BETWEEN  3400 AND 5000
+AND  Empregado.funcao =  'balconista';
 #
 ############################################################################
 # Apresente todos os funcionários com salários
 #entre 3400 e 4000 ou que sejam balconistas.
 ############################################################################
 #
-SELECT EMPNOME, EMPSALA, EMPSERV
-FROM  EMP
-WHERE EMPSALA  BETWEEN  3400 AND 5000
-OR  EMPSERV =  'balconista';
+SELECT Empregado.nome, Empregado.sala, Empregado.funcao
+FROM  Empregado
+WHERE Empregado.sala  BETWEEN  3400 AND 5000
+OR  Empregado.funcao =  'balconista';
 #
 #
 ############################################################################
@@ -144,14 +144,14 @@ OR  EMPSERV =  'balconista';
 #To_Char(num)- 		converte um valor numérico para  uma string de caracteres.
 #To_Date(char,fmt)- 	converte uma string caracter em uma data.
 #
-SELECT LOWER( EMPNOME )
-FROM EMP;
+SELECT LOWER( Empregado.nome )
+FROM Empregado;
 #
 ############################################################################
 # Apresente o nome de todos os empregados (somente as 5 primeiras letras).
 ############################################################################
 #
-SELECT SUBSTRING(EMPNOME,1,5) FROM EMP;
+SELECT SUBSTRING(Empregado.nome,1,5) FROM Empregado;
 #
 ############################################################################
 # Apresente a Média, o Maior, o Menor e também a Somatória
@@ -167,49 +167,53 @@ SELECT SUBSTRING(EMPNOME,1,5) FROM EMP;
 #min(expr)     menor valor da expr
 #sum(n)	       soma dos valores de n, ignorando nulos
 #
-SELECT  AVG(EMPSALA)  FROM  EMP;
+SELECT  AVG(Empregado.comissao)  FROM  Empregado;
 #
-SELECT  MIN(EMPSALA)  FROM  EMP;
+SELECT  MIN(Empregado.comissao)  FROM  Empregado;
 #
-SELECT  MAX(EMPSALA)  FROM EMP;
+SELECT  MAX(Empregado.comissao)  FROM Empregado;
 #
-SELECT  SUM(EMPSALA) FROM  EMP;
+SELECT  SUM(Empregado.comissao) FROM  Empregado;
 #
 ############################################################################
-# Apresente a média de salário pagos por departamento.
+# Apresente a média de comissão pagos por departamento.
 ############################################################################
 #
-SELECT DEPNUME, AVG(EMPSALA)
-FROM EMP
-GROUP BY DEPNUME;
+SELECT Empregado.Departamento_idDepartamento, AVG(Empregado.comissao)
+FROM Empregado
+GROUP BY Empregado.Departamento_idDepartamento;
 #
 ############################################################################
 #  Retome o problema anterior, porém apresente resposta
-#apenas para departamentos com mais de 3 empregados.
+#apenas para departamentos com mais de 2 empregados.
 ############################################################################
 #
-SELECT  DEPNUME, AVG(EMPSALA)
-FROM  EMP
-GROUP BY DEPNUME
+SELECT  Empregado.Departamento_idDepartamento, AVG(Empregado.comissao)
+FROM  Empregado
+GROUP BY Empregado.Departamento_idDepartamento
 HAVING COUNT(*) > 2;
 #
 ############################################################################
 # Listar Nomes de Empregados, Cargos e
 #Nome do Departamento onde o empregado trabalha.
 ############################################################################
-#
-SELECT A.EMPNOME, A.EMPSERV, B.DEPNOME
-FROM EMP A, Departamento  B
-WHERE A.DEPNUME = B.DEPNUME;
+
+#neste caso, o uso de ALIAS é desnecessário
+SELECT A.nome, A.funcao, B.nome
+FROM Empregado A, Departamento B
+WHERE A.idDepartamento = B.Departamento_idDepartamento;
+
 #
 ############################################################################
-# Liste os Códigos do Cada Funcionário, seus Nomes, seus Cargos
+# Liste os Códigos de Cada Funcionário, seus Nomes, seus Cargos
 #e o nome do Gerente ao qual este se relaciona.
 ############################################################################
-#
-SELECT  A.EMPNUME, A.EMPNOME, A.EMPSERV, B.EMPNOME
-FROM  EMP A, EMP B
-WHERE  A.EMPGERE  = B.EMPNUME;
+
+# neste caso, o uso de ALIAS é fundamental
+SELECT  A.idEmpregado, A.nome, A.funcao, B.nome "CHEFE"
+FROM  Empregado A, Empregado B
+WHERE  A.idGerente  = B.idEmpregado;
+
 #
 ############################################################################
 # INSERT
@@ -221,13 +225,13 @@ INSERT INTO Departamento (DEPNUME,DEPNOME,DEPLOCA) VALUES (70,"PRODUCAO","RIO DE
 # UPDATE
 ############################################################################
 #
-UPDATE EMP SET EMPSALA = EMPSALA* 1.2 WHERE EMPSALA< 1000;
+UPDATE EMP SET Empregado.sala = Empregado.sala* 1.2 WHERE Empregado.sala< 1000;
 #
 ############################################################################
 # DELETE
 ############################################################################
 #
-DELETE FROM emp WHERE EMPSALA > 5000;
+DELETE FROM emp WHERE Empregado.sala > 5000;
 #
 ############################################################################
 # FIM DO SUPORTE DO MYSQL
@@ -236,21 +240,21 @@ DELETE FROM emp WHERE EMPSALA > 5000;
 #cargos, desde que o orçamento do departamento seja igual a 10000.
 ############################################################################
 #
-SELECT  EMPNOME, EMPSERV
-FROM EMP as A
-WHERE  10000 IN (SELECT DEPORCA
+SELECT  Empregado.nome, Empregado.funcao
+FROM Empregado A
+WHERE  10000 IN (SELECT Departamento.orcamento
                   FROM Departamento
-                  WHERE Departamento.DEPNUME = A.DEPNUME);
+                  WHERE Departamento.idDepartamento = A.Departamento_idDepartamento);
 #
 ############################################################################
 # Relacione todos os departamentos que possuem
 #empregados com remuneração maior que 3000.
 ############################################################################
 #
-SELECT DEPNOME
+SELECT Departamento.nome
 FROM Departamento A
-WHERE EXISTS (SELECT * FROM EMP
-              WHERE EMPSALA > 3000 AND EMP.DEPNUME = A.DEPNUME);
+WHERE EXISTS (SELECT * FROM Empregado
+              WHERE Empregado.sala > 3000 AND Empregado.Departamento_idDepartamento = A.idDepartamento);
 #
 ############################################################################
 # TRANSACOES
@@ -270,7 +274,7 @@ end transaction;
 ############################################################################
 #
 CREATE VIEW EMP_DEP
-AS SELECT E.EMPNOME, D.DEPNOME
+AS SELECT E.Empregado.nome, D.DEPNOME
 FROM EMP E, Departamento D
 WHERE E.DEPNUME = D.DEPNUME;
 #
