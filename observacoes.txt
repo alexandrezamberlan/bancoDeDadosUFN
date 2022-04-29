@@ -1,0 +1,9 @@
+SGBD
+    - garantir integrida do BD: gerenciamento de restrições (constrains)
+        - chave primária - unicidade
+        - chave estrangeira - relacionamento e exclusão/atualização
+        - atributos - valores autorizados e/ou validados
+        - comportamento/funcional/método - stored procedure ou validações no front-end
+
+
+
