@@ -1,4 +1,4 @@
---Base de dados da Editora
+-- script base de dados da editora_db
 
 --criando base de dados
 create database editora_db;
