@@ -8,7 +8,7 @@ Modelagem de Banco de Dados Relacional
 
     - Modelo lógico: transcrição das entidades em tabelas, nome de atributos mais relacionados
       com nomes de atributos no contexto de programação
-        - destaca as chaves estrangeiras
+        - destaca as chaves estrangeiras 
             - é um atributo de uma tabela que visita outra tabela
             - para ser chave estrangeira, na tablea de origem ela precisa ser chave primária
         - por exemplo, atributo transcrito do conceitual para o lógico  
