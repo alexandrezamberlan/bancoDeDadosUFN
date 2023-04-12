@@ -18,5 +18,5 @@ No contexto de Banco de Dados e Sistema Gerenciador de Banco de Dados (SGBD) rel
         - DML: Data Manipulation Language
             - tables - update, insert, select, delete, ...
             - select 
-                - cálculo relacional: projeções, seleções, produto cartesiano, união, intersecção, divisão, subtração
+                - álgebra relacional: projeções, seleções, produto cartesiano, união, intersecção, divisão, subtração
 
