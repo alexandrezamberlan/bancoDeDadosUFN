@@ -1,6 +1,12 @@
 Sugestão para estudos: https://www.w3schools.com/sql/
 
 
+SGBDs importantes/consolidados
+    - MySQL         -> SQL (ANSI)
+    - PostGrees     -> SQL
+    - Oracle        -> PL-SQL
+    - SQL Server    -> T-SQL
+    
 No contexto de Banco de Dados e Sistema Gerenciador de Banco de Dados (SGBD) relacional:
     - só para lembrar - o que é um BD Relacional?
         - composto por entidades (tabelas) que se relacionam entre si via chave primária-estrangeira
