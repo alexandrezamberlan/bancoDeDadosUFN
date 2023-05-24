@@ -210,7 +210,7 @@ ORDER BY preco ASC;
 
 select livro.* 
 from livro,genero 
-where descricao = "Auto-Ajuda" and livro.id_genero = genero.id_genero 
+where descricao = "Auto-Ajuda" and livro.idGenero = genero.idGenero 
 order by preco asc;
 
 -- xix.Mostre quantos autores estão cadastros;
@@ -229,11 +229,10 @@ where idEditora = '1';
 select titulo, preco 
 from livro 
 where preco = (select max(preco) 
-			   from livro 
-               where idEditora = 1) or 
-	  preco = (select min(preco) 
-               from livro 
-               where idEditora = 1);
+	       from livro 
+               where idEditora = 1) or preco = (select min(preco) 
+                                                from livro 
+                                                 where idEditora = 1);
 
 -- xxi.Liste a média de preços dos livros da editora 2;
 select avg(preco) as precoMedio 
@@ -288,7 +287,7 @@ FROM Livro, Ranking_semanal
 WHERE semanasConsecutivas = (SELECT max(semanasConsecutivas) 
                              FROM Ranking_semanal 
                              WHERE posicao = 1) 
-	AND Livro.idLivro = Ranking_semanal.idLivro;
+      AND Livro.idLivro = Ranking_semanal.idLivro;
 
 select livro.titulo, ranking_semanal.idLivro, ranking_semanal.semanasConsecutivas 
 from ranking_semanal, livro 
@@ -304,19 +303,19 @@ where Livro_Autor.idAutor=Autor.idAutor and
       Ranking_Semanal.idLivro=Livro.idLivro and Ranking.idRanking=2;
       
 select distinct Autor.nome as autor 
-from Livro, Autor, Livro_Autor, Ranking, RankingSemanal 
+from Livro, Autor, Livro_Autor, Ranking, Ranking_Semanal 
 where (Ranking.dataInicial="2003-08-24" and Ranking.dataFinal="2003-08-30") and
 Livro_Autor.idAutor=Autor.idAutor and 
 Livro_Autor.idLivro=Livro.idLivro and 
-RankingSemanal.idRanking = Ranking.idRanking and 
-RankingSemanal.idLivro=Livro.idLivro;
+Ranking_Semanal.idRanking = Ranking.idRanking and 
+Ranking_Semanal.idLivro=Livro.idLivro;
 
 select autor.nome
 from autor,ranking, ranking_semanal, livro_autor
 where ranking_semanal.idRanking = (select idRanking
-									from ranking
-									where dataInicial = "2003-08-24" and
-									dataFinal = "2003-08-30") 
+				   from ranking
+				   where dataInicial = "2003-08-24" and
+				   dataFinal = "2003-08-30") 
 	and
 	ranking.idRanking = ranking_semanal.idRanking and
 	ranking_semanal.idLivro = livro_autor.idLivro and
