@@ -248,10 +248,9 @@ select Autor.nome
 from Autor, Livro_Autor
 where Autor.idAutor = Livro_Autor.idAutor;
 
-SELECT distinct(Autor.nome)
-FROM Autor
-INNER JOIN Livro_Autor
-ON Autor.idAutor = Livro_Autor.idAutor;
+select distinct Autor.nome
+from Livro_Autor
+INNER JOIN Autor ON Livro_Autor.idAutor=Autor.idAutor;
 
 -- v.Mostre o nome dos autores, sem repetição, presentes na tabela Livro_Autor; 
 select distinct(Autor.nome)
