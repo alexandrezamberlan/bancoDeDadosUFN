@@ -305,6 +305,11 @@ where  Genero.descricao = 'Infantil' and
        Livro.idGenero = Genero.idGenero and
        (Livro.idEditora = 1 or Livro.idEditora = 5) and
        Livro.idEditora = Editora.idEditora;
+       
+select Livro.titulo, Genero.descricao, Livro.idEditora 'Código Editora', Editora.nome
+from((Livro
+inner join Genero on Genero.descricao = 'Infantil' and (Livro.idEditora = 1 or Livro.idEditora = 5))
+inner join Editora on Livro.idGenero = Genero.idGenero and Livro.idEditora = Editora.idEditora)
       
 -- xiv.Mostre os códigos e os títulos dos livros, com seus respectivos preços;
 select idLivro, titulo, preco 
@@ -358,9 +363,9 @@ where idEditora = '1';
 select titulo, preco 
 from livro 
 where preco = (select max(preco) 
-			   from livro 
+	       from livro 
                where idEditora = 1) or 
-	  preco = (select min(preco) 
+      preco = (select min(preco) 
                from livro 
                where idEditora = 1);
 
@@ -417,12 +422,12 @@ FROM Livro, Ranking_semanal
 WHERE semanasConsecutivas = (SELECT max(semanasConsecutivas) 
                              FROM Ranking_semanal 
                              WHERE posicao = 1) AND 
-							 Livro.idLivro = Ranking_semanal.idLivro;
+      Livro.idLivro = Ranking_semanal.idLivro;
 
-select livro.titulo, ranking_semanal.idLivro, ranking_semanal.semanasConsecutivas 
+select top 1 livro.titulo, ranking_semanal.idLivro, ranking_semanal.semanasConsecutivas 
 from ranking_semanal, livro 
 where Livro.idLivro = Ranking_semanal.idLivro
-order by semanasConsecutivas desc limit 1 ;
+order by semanasConsecutivas desc;
 
 -- xxv.Mostre o nome dos autores dos livros que estavam no ranking da semana de 24/08/2003 a 30/08/2003;
 select distinct Autor.nome as autor 
@@ -443,9 +448,9 @@ RankingSemanal.idLivro=Livro.idLivro;
 select autor.nome
 from autor,ranking, ranking_semanal, livro_autor
 where ranking_semanal.idRanking = (select idRanking
-									from ranking
-									where dataInicial = '2003-08-24' and
-									dataFinal = '2003-08-30') and
-									ranking.idRanking = ranking_semanal.idRanking and
-									ranking_semanal.idLivro = livro_autor.idLivro and
-									livro_autor.idAutor = autor.idAutor;
+				from ranking
+				where dataInicial = '2003-08-24' and
+				dataFinal = '2003-08-30') 
+      and ranking.idRanking = ranking_semanal.idRanking and
+      ranking_semanal.idLivro = livro_autor.idLivro and
+      livro_autor.idAutor = autor.idAutor;
