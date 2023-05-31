@@ -73,7 +73,7 @@ order by  Empregado.nome desc;
 #like                      com um padrao de caracteres
 #is null                   é um valor nulo
 #
-SELECT  Empregado.nome, Empregado.sala
+SELECT  Empregado.nome, Empregado.salario
 FROM  Empregado
 WHERE  Empregado.sala BETWEEN  20  AND  30;
 #
@@ -105,9 +105,9 @@ WHERE  Empregado.comissao  IS  NULL;
 #menores que 1000 ou maiores que 3500.
 ############################################################################
 #
-SELECT Empregado.nome,  Empregado.sala
+SELECT Empregado.nome,  Empregado.salario
 FROM  Empregado
-WHERE  Empregado.sala  NOT  BETWEEN  1000  AND  3500;
+WHERE  Empregado.salario  NOT  BETWEEN  1000  AND  3500;
 #
 ############################################################################
 # Apresente todos os funcionários com salários
@@ -116,9 +116,9 @@ WHERE  Empregado.sala  NOT  BETWEEN  1000  AND  3500;
 #
 # Operadores  "AND" (E) e  "OR" (OU).
 #
-SELECT Empregado.nome, Empregado.sala, Empregado.funcao
+SELECT Empregado.nome, Empregado.salario, Empregado.funcao
 FROM  Empregado
-WHERE  Empregado.sala  BETWEEN  3400 AND 5000
+WHERE  Empregado.salario  BETWEEN  3400 AND 5000
 AND  Empregado.funcao =  'balconista';
 #
 ############################################################################
@@ -240,7 +240,7 @@ DELETE FROM emp WHERE Empregado.sala > 5000;
 #cargos, desde que o orçamento do departamento seja igual a 10000.
 ############################################################################
 #
-SELECT  Empregado.nome, Empregado.funcao
+SELECT  A.nome, A.funcao
 FROM Empregado A
 WHERE  10000 IN (SELECT Departamento.orcamento
                   FROM Departamento
@@ -251,7 +251,7 @@ WHERE  10000 IN (SELECT Departamento.orcamento
 #empregados com remuneração maior que 3000.
 ############################################################################
 #
-SELECT Departamento.nome
+SELECT A.nome
 FROM Departamento A
 WHERE EXISTS (SELECT * FROM Empregado
               WHERE Empregado.sala > 3000 AND Empregado.Departamento_idDepartamento = A.idDepartamento);
@@ -274,9 +274,9 @@ end transaction;
 ############################################################################
 #
 CREATE VIEW EMP_DEP
-AS SELECT E.Empregado.nome, D.DEPNOME
-FROM EMP E, Departamento D
-WHERE E.DEPNUME = D.DEPNUME;
+AS SELECT E.nome Empregado, D.nome Departamento
+FROM Empregado E, Departamento D
+WHERE E.Departamento_idDepartamento = D.idDepartamento
 #
 # FIM SQL
 #
