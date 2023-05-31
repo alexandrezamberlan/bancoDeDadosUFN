@@ -3,7 +3,7 @@
 --criando base de dados
 create database editora_db;
 
---mostrando todas as tabelas da base de dados
+--mostrando todas as bases de dados
 SELECT name
 FROM sys.databases;  
 
