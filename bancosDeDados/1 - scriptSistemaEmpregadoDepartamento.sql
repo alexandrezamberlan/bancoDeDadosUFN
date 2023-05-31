@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Empregado` (
   `funcao` VARCHAR(45) NULL,
   `Departamento_idDepartamento` INT NOT NULL,
   `dataAdmissao` DATE NOT NULL,
-  `sala` INT NULL,
+  `salario` INT NULL,
   `comissao` INT NULL,
   PRIMARY KEY (`idEmpregado`, `Departamento_idDepartamento`),
   INDEX `fk_Empregado_Departamento_idx` (`Departamento_idDepartamento` ASC),
