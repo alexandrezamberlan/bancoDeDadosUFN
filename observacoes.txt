@@ -1,3 +1,52 @@
+Revisões
+
+BD Relacional (esquema):
+    - arquivo(s) com tabelas e suas relações
+
+Sistema Gerenciador de BD Relacional (SGBD):
+    - linguagem de manipulação de dados - SQL
+    - serviços:
+        - backup
+        - consistência
+        - segurança
+        - integridade: chave primária e chave estrangeira
+
+Projeto de Banco de Dados Relacional
+    - Levantamento de Requisitos
+        - estruturais -> base de dados
+            -> leitura de texto
+            -> observação
+            -> escuta de depoimento
+    - Modelagem do esquema de BD Relacional
+        - Entidades == Classes == Tabelas 
+            - substântivos do relato que categorizam ou aglomeram algo/objetos
+        - Relacionamentos == Atributos ou Chaves Estrangeiras
+            - verbos de ligação ou relação entre as entidades
+            - Cardinalidade == Quantos atributos de uma tabela se relacionam com quantos atributos de outra tabela            
+        - Atributos == Chaves == Colunas == Variáveis
+            - um exemplo ou uma ocorrência == um objeto de uma Entidade
+
+    - Processo de Modelagem (3 fases):
+        - Conceitual: desenho
+            - entidades, atributos básicos, relacionamentos e cardinalidades
+            - para conversar ou interagir com cliente
+            - fase BEM abstrata
+        - Lógica: pensamento de tabelas e chaves Estrangeiras
+            - desenho desaparece
+            - organização do esquema com facilidade para o programador
+        - Físico: direcionamento para as tecnologias a serem utilizadas
+            - foca no SGBD
+
+
+
+
+
+
+
+
+
+
+
 SGBD
     - garantir integrida do BD: gerenciamento de restrições (constrains)
         - chave primária - unicidade
