@@ -30,7 +30,7 @@ Categoria(codCategoria, descricao, ativo).
 Ator(codAtor, apelido, nome, dataNascimento, ativo).
     codAtor chave primária
 
-Filme(codFilme, titulo, codCategoria, codAtor ativo). 
+Filme(codFilme, titulo, codCategoria, codAtor, ativo). 
     codFilme chave primária
     codAtor referencia Ator
 
