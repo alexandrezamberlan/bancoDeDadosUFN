@@ -1,12 +1,13 @@
 Banco de Dados Relacional
     - Estrutura em forma de arquivo(s) para armazenar dados em tabelas com relações entre si.
-    - Todo banco de dados precisa de um gerenciador, conhecido como SGBD e uma linguagem específica (construção e manipulação)
+    - Todo banco de dados precisa de um gerenciador, conhecido como SGBD e uma linguagem específica 
+      (construção e manipulação)
         - SGBD + linguagem dão condições para o banco ser:
-            - construído: Data Definion Language - DDL -> create, drop, ...
+            - construído: Data Definion Language - DDL -> create, drop, ... (database)
             - manipulado: Data Manipulation Language - DML -> select, insert, update, delete
 
     - Nas fases iniciais de construção do banco de dados
-        - modelagem conceitual: entidades, atributos e relacionamentos
+        - modelagem conceitual: entidades, atributos e relacionamentos (gráfica para conversar com cliente)
         - modelagem lógica: transformação de entidades em tabelas; definição de atributos chaves (primária e estrangeira);
                             definição dos relacionamentos (1..;1..n;n..m), com isso auxiliando na 
                             definição de tabelas e chaves estrangeiras
@@ -16,11 +17,11 @@ Banco de Dados Relacional
     - No processo de engenharia, da modelagem até o banco de dados criado em um SGBD, há boas práticas a seguir:
         - menos é mais, ou seja, quando possível, manter dados em mesma tabela, ou em um número reduzido de tabelas
         - evitar, quando der, atributos nulos
-        - cuidar redundância
+        - em chaves primárias, evitar, quando der, muitos atributos
 
     - Há um conceito teórico-formal para consultas em banco: ÁLGEBRA Relacional
         - Projeções - Pi minúsculo
-            - é uma seleção em que se quer visualizar atributos de tabela(s) sem filtro
+            - é uma seleção em que se quer visualizar atributos de tabela(s) sem filtro                
             
             select Usuario.nome, Usuario.email
             from Usuario
@@ -47,8 +48,7 @@ Banco de Dados Relacional
             where Usuario.sexto = 'Masculino' and Usuario.dataNascimento < '10/03/1974'
 
         - Produto cartesiano
-            - é uma operação de relacionamento entre tabelas, para verificar se um mesmo dado aparece nas tabelas
-
+            - é uma operação de relacionamento entre tabelas, para verificar se um mesmo dado aparece em outras tabelas
 
             select Aeroporto.nome, Aeroporto.tipo
             from Cidade, Aeroporto

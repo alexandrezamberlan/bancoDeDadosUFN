@@ -1,6 +1,5 @@
 Sugestão para estudos: https://www.w3schools.com/sql/
 
-
 SGBDs importantes/consolidados
     - MySQL         -> SQL (ANSI)
     - PostGrees     -> SQL
@@ -26,3 +25,27 @@ No contexto de Banco de Dados e Sistema Gerenciador de Banco de Dados (SGBD) rel
             - select 
                 - álgebra relacional: projeções, seleções, produto cartesiano, união, intersecção, divisão, subtração
 
+Diferença entre BD relacional e não relacional!
+Em um banco de dados relacional, os dados são organizados em tabelas, onde cada linha representa 
+uma entrada única e cada coluna representa um atributo dessa entrada. 
+Relacionamentos entre diferentes tabelas são estabelecidos através de chaves primárias e estrangeiras. 
+SQL (Structured Query Language) é a linguagem padrão utilizada para consultar, manipular e gerenciar 
+dados em bancos de dados relacionais. 
+Ele fornece uma maneira poderosa e padronizada de realizar operações como inserção, atualização, 
+exclusão e recuperação de dados.
+
+Por outro lado, em um banco de dados não relacional, os dados são armazenados de forma mais flexível, 
+muitas vezes usando estruturas como documentos, grafos, pares chave-valor ou famílias de colunas. 
+Esses bancos de dados não seguem um modelo tabular rígido como os relacionais. 
+Eles são projetados para lidar com grandes volumes de dados de maneira escalável e distribuída. 
+Uma característica importante dos bancos de dados não relacionais é que eles não requerem o uso de SQL 
+para manipulação de dados. Em vez disso, eles geralmente oferecem APIs específicas para operações 
+de leitura e gravação.
+
+Em resumo, a principal diferença entre os dois é a estrutura de armazenamento e o modelo de acesso aos 
+dados. 
+Os bancos de dados relacionais utilizam tabelas com esquemas predefinidos e consultas SQL, 
+enquanto os bancos de dados não relacionais oferecem uma variedade de modelos de dados e normalmente 
+são acessados através de APIs específicas. 
+A escolha entre eles depende das necessidades específicas do projeto, como volume de dados, 
+complexidade das consultas e escalabilidade.
