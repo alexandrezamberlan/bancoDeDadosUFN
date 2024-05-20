@@ -75,7 +75,7 @@ order by  Empregado.nome desc;
 #
 SELECT  Empregado.nome, Empregado.salario
 FROM  Empregado
-WHERE  Empregado.sala BETWEEN  20  AND  30;
+WHERE  Empregado.salario BETWEEN  20  AND  30;
 #
 SELECT  Empregado.nome,  Empregado.Departamento_idDepartamento
 FROM  Empregado
@@ -126,9 +126,9 @@ AND  Empregado.funcao =  'balconista';
 #entre 3400 e 4000 ou que sejam balconistas.
 ############################################################################
 #
-SELECT Empregado.nome, Empregado.sala, Empregado.funcao
+SELECT Empregado.nome, Empregado.salario, Empregado.funcao
 FROM  Empregado
-WHERE Empregado.sala  BETWEEN  3400 AND 5000
+WHERE Empregado.salario  BETWEEN  3400 AND 5000
 OR  Empregado.funcao =  'balconista';
 #
 #
@@ -225,13 +225,13 @@ INSERT INTO Departamento (DEPNUME,DEPNOME,DEPLOCA) VALUES (70,"PRODUCAO","RIO DE
 # UPDATE
 ############################################################################
 #
-UPDATE EMP SET Empregado.sala = Empregado.sala* 1.2 WHERE Empregado.sala< 1000;
+UPDATE EMP SET Empregado.salario = Empregado.salario* 1.2 WHERE Empregado.salario< 1000;
 #
 ############################################################################
 # DELETE
 ############################################################################
 #
-DELETE FROM emp WHERE Empregado.sala > 5000;
+DELETE FROM Empregado WHERE Empregado.salario > 5000;
 #
 ############################################################################
 # FIM DO SUPORTE DO MYSQL
@@ -254,14 +254,14 @@ WHERE  10000 IN (SELECT Departamento.orcamento
 SELECT A.nome
 FROM Departamento A
 WHERE EXISTS (SELECT * FROM Empregado
-              WHERE Empregado.sala > 3000 AND Empregado.Departamento_idDepartamento = A.idDepartamento);
+              WHERE Empregado.salario > 3000 AND Empregado.Departamento_idDepartamento = A.idDepartamento);
 #
 ############################################################################
 # TRANSACOES
 ############################################################################
 #
 begin transaction;
-  delete from emp where salario > 500;
+  delete from empregado where salario > 500;
   if SQL_RECORDCOUNT > 20 THEN;
      ROLLBACK TRASACTION;
   else
