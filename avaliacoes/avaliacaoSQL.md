@@ -26,10 +26,10 @@ Instituicao
 
 projeto(titulo,resumo,responsavel professor|chave estrangeira, colaborador|chave estrangeira, instituicao|chave estrangeira)
 Projeto
-  - 1,"Web Crawler","Trabalho do Zamba",1,NULL,1
-  - 2,"SirPerf","Sistema de perfusão",1,3,1
-  - 3,"OdontoTren","Sistema de gestão de atendimento",2,3,2
-  - 4,"Avida","Sistema de acompanhamento psiquiátrico",1,NULL,1
+  - 1,"Web Crawler","Trabalho do Zamba",1,NULL,10
+  - 2,"SirPerf","Sistema de perfusão",1,3,10
+  - 3,"OdontoTren","Sistema de gestão de atendimento",2,3,20
+  - 4,"Avida","Sistema de acompanhamento psiquiátrico",1,NULL,10
 
 4) Descubra quais os projetos da instituição UFN.
 5) Mostre os professores que não possuem projetos submetidos
