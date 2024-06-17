@@ -1,3 +1,19 @@
+# Avaliação Final
+
+1) No seu github pessoal, criar um repositório de banco de dados (caso ainda não exista) e dentro dele um arquivo chamado vocabulario.md. Nele preencher o significado das expressões abaixo, mantendo o texto ordenado:
+	- sistema gerenciador de banco de dados
+	- restrições em banco de dados
+	- modelo relacional
+	- modelagem conceitual
+	- modelagem lógica
+	- modelagem física
+	- linguagem SQL
+	- Data Definition Language (DDL)
+	- Data Manipulation Language (DML)
+	- Boas práticas em modelagem de banco de dados
+
+2) Por meio do MySQL Workbench OU MS Studio Managament faça o seguinte esquema de banco e responda as questões.
+
 create database locadora; 
 use locadora;
 
@@ -83,35 +99,19 @@ VALUES (1,2,1,'2023-06-07',3),
 (5,4,7,'2023-06-07',12);
 
 # Todos os clientes armazenados no sistema:
-select * from cliente;
+
 
 # Exiba os veículos que tenham final 3 no número da placa
-select * from veiculo where placa like '%3';
+
 
 # Mostre os clientes que residem no RS e que não possuam telefone
-select * from cliente where uf_cnh = 'RS' and telefone is null;
+
 
 # Exiba o código dos clientes que alugaram veículos por mais de 90 dias.
-select cliente.id_cliente from cliente
-inner join contrato_aluguel
-on cliente.id_cliente = contrato_aluguel.id_cliente
-where duracao > 3;
 
 # Quantos veículos há cadastrados no sistema
-select COUNT(id_veiculo) AS numeroVeiculos FROM veiculo;
 
 # Mostre o veículo alugado por Alexandre Zamberlan.
-select veiculo.id_veiculo, veiculo.placa, veiculo.id_tipo_veiculo from veiculo
-inner join contrato_aluguel
-on veiculo.id_veiculo = contrato_aluguel.id_veiculo
-inner join cliente
-on contrato_aluguel.id_cliente = cliente.id_cliente
-where cliente.nome = 'Alexandre Zamberlan';
 
 # Mostre os clientes e os escritórios associados no contrato de aluguel.
-select escritorio.nome nomeEscritorio, cliente.nome nomeCliente from contrato_aluguel
-inner join cliente
-on contrato_aluguel.id_cliente = cliente.id_cliente
-inner join escritorio
-on contrato_aluguel.id_escritorio = escritorio.id_escritorio;
 
