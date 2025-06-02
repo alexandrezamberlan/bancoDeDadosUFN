@@ -309,7 +309,7 @@ where  Genero.descricao = 'Infantil' and
 select Livro.titulo, Genero.descricao, Livro.idEditora 'Código Editora', Editora.nome
 from((Livro
 inner join Genero on Genero.descricao = 'Infantil' and (Livro.idEditora = 1 or Livro.idEditora = 5))
-inner join Editora on Livro.idGenero = Genero.idGenero and Livro.idEditora = Editora.idEditora)
+inner join Editora on Livro.idEditora = Editora.idEditora)
       
 -- xiv.Mostre os códigos e os títulos dos livros, com seus respectivos preços;
 select idLivro, titulo, preco 
